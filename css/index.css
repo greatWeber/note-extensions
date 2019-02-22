@@ -1,0 +1,233 @@
+body,p,h1,h2,h3,h4,h5,img,ul,li {
+    margin: 0;
+    padding: 0;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    outline: none;
+}
+
+.m-b {
+    vertical-align: middle;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hide {
+    display: none;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+#node {
+    width: 500px;
+    height: 500px;
+    background: #fefefe;
+    padding: 30px;
+}
+
+.search-box {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    border: 1px #eee solid;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 0;
+    overflow: hidden;
+
+}
+
+.search-box .search-icon {
+    display: inline-block;
+    width: 10%;
+    height: 100%;
+    cursor: pointer;
+    font-size: 20px;
+    color: #666;
+    text-align: center;
+    transition: all 0.3s linear;
+}
+
+
+.search-box .search-icon:hover {
+   color: #23cc23; 
+}
+
+.search-box .search-input {
+    width: 80%;
+    height: 100%;
+    border: none;
+    text-indent: 10px;
+    font-size: 16px;
+}
+
+
+
+.search-box .add-btn {
+    display: inline-block;
+    width: 10%;
+    height: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #23cc23;
+    font-weight: bold;
+}
+/*-----------------------*/
+
+/*列表*/
+.list-box {
+    width: 100%;
+    height: 350px;
+    border: 1px #eee solid;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.list {
+    padding:  10px;
+    height: 280px;
+    overflow-y: scroll;
+}
+
+.list .list-item {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.list-item .checkbox {
+    display: inline-block;
+
+}
+
+
+.list-item .checkbox span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.list-item .checkbox input {
+    display: none;
+}
+
+
+.list-item .checkbox input:checked + span {
+    border-color: #23cc23;
+    
+}
+
+
+.list-item .checkbox input:checked + span:after {
+   display: block;
+   content: '';
+   width: 10px;
+   height: 10px;
+   border: 5px solid #fff;
+   background: #23cc23;
+   border-radius: 50%;
+}
+.list-item .content {
+    display: inline-block;
+    width: 80%;
+    height:100%;
+    font-size: 16px;
+    padding: 0 10px; 
+    font-weight: bold;
+}
+
+.list-item .state {
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+    padding: 3px 5px;
+    border-radius: 8px;
+    line-height: 1;
+}
+
+.state-green {
+    background: #23cc23;
+}
+
+
+/*------------------------------------*/
+
+.operations {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #23cc23;
+    border-top: 1px solid #eee;
+    cursor: pointer;
+}
+
+.operations p {
+    text-align: center;
+}
+
+
+
+
+
+
+
+::-webkit-scrollbar-track-piece { /*滚动条凹槽的颜色，还可以设置边框属性*/
+background-color:#f8f8f8;
+}
+::-webkit-scrollbar {/*滚动条的宽度*/
+width:9px;
+height:9px;
+}
+::-webkit-scrollbar-thumb {/*滚动条的设置*/
+background-color:#dddddd;
+background-clip:padding-box;
+min-height:28px;
+}
+::-webkit-scrollbar-thumb:hover {
+background-color:#bbb;
+}

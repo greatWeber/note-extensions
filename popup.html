@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>popup</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/font-extension.css">
 </head>
 <body>
-    
+    <div id="node">
+        <!-- head -->
+        <div class="header">
+            <div class="search-box">
+                <span class="search-icon icon-extension-search m-b"></span>
+                <input class="search-input m-b" type="text"
+                                            placeholder="请输入备忘录">
+                <a class="add-btn m-b" href="javascript:;">Add</a>
+            </div>
+        </div>
+        <!-- list -->
+        <div class="list-box">
+            <ul class="list">
+                <li class="list-item">
+                    <label class="checkbox m-b" for="checkbox-1">
+                        <input type="checkbox" id="checkbox-1">
+                        <span class="m-b"></span>
+                    </label>
+                    <p class="content ellipsis m-b">测试测试测试</p>
+                    <span class="state state-green">已完成</span>
+                </li>
+            </ul>
+            
+            <div class="operations flex">
+                <p class="flex-item">
+                    <span>编辑</span>
+                </p>
+                <p class="flex-item">
+                    <span>完成</span>
+                </p>
+                <p class="flex-item">
+                    <span>删除</span>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
