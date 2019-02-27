@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src * 'unsafe-inline'"> 
     <meta charset="UTF-8">
     <title>popup</title>
     <link rel="stylesheet" href="./css/index.css">
@@ -14,7 +15,7 @@
                 <span class="search-icon icon-extension-search m-b"></span>
                 <input class="search-input m-b" type="text"
                                             placeholder="请输入备忘录">
-                <a class="add-btn m-b" href="javascript:;">Add</a>
+                <a class="add-btn icon-extension-add m-b" href="javascript:;"></a>
             </div>
         </div>
         <!-- list -->
@@ -30,19 +31,34 @@
                 </li>
             </ul>
             
-            <div class="operations flex">
-                <p class="flex-item">
-                    <span>编辑</span>
-                </p>
-                <p class="flex-item">
-                    <span>完成</span>
-                </p>
-                <p class="flex-item">
-                    <span>删除</span>
-                </p>
+            <div class="operations ">
+                <div class="edit flex">
+                    <p class="flex-item">
+                        <span class="icon icon-extension-edit m-b"></span>
+                        <span>编辑</span>
+                    </p>
+                </div>
+
+                <div class="back-box flex hide">
+                    <p class="flex-item back">
+                        <span class="icon icon-extension-back m-b"></span>
+                        <span>返回</span>
+                    </p>
+                    <p class="flex-item finish">
+                        <span class="icon icon-extension-finish m-b"></span>
+                        <span>完成</span>
+                    </p>
+                    <p class="flex-item del">
+                        <span class="icon icon-extension-del m-b"></span>
+                        <span>删除</span>
+                    </p>
+                
+                </div>
             </div>
         </div>
     </div>
+
+        <script src="./js/popup.js"></script> 
 </body>
 </html>
 

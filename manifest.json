@@ -3,6 +3,7 @@
     "version": "1.0",
     "manifest_version": 2,
     "description": "the note ",
+    "permissions": ["storage","notifications"],
     "icons": {
         "16": "images/notebook-16.png",
         "48": "images/notebook-48.png",
@@ -12,5 +13,6 @@
         "default_title": "note",
         "default_icon": "images/notebook-16.png",
         "default_popup": "popup.html"
-    }
+    },
+    "web_accessible_resources": ["images/image.png"]
 }

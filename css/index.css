@@ -27,7 +27,7 @@ input {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 
@@ -106,7 +106,7 @@ input {
     width: 10%;
     height: 100%;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     color: #23cc23;
     font-weight: bold;
 }
@@ -190,8 +190,18 @@ input {
     line-height: 1;
 }
 
-.state-green {
+.state-finish {
     background: #23cc23;
+}
+
+
+.state-unfinished {
+    background: #f9ca62;
+}
+
+
+.state-timeout {
+    background: #ff3b30;
 }
 
 
@@ -208,6 +218,15 @@ input {
 
 .operations p {
     text-align: center;
+}
+
+.operations span {
+    color: #23cc23;
+}
+
+.operations .icon {
+    font-size: 20px;
+    color: #23cc23;
 }
 
 
