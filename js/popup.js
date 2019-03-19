@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function(){
     main()
 })
 
-chrome.runtime.onInstalled.addListener(function(request){
-    openPolling();
-})
 
 //全局变量
 var noteList = [];
@@ -27,6 +24,7 @@ function main(){
     addNote();
     search();
     opacitions();
+    //openPolling();
 }
 
 /*
@@ -42,6 +40,23 @@ function getHistory(){
         }
     })
 }
+/*
+ * 检查是否过期
+ */
+function checkTimeout(){
+    var now = new Date().getTime();
+    console.log(now);
+    var outNum = 0;
+    //getHistory();
+    noteList.forEach(function(item,i){
+        if(item.endTime<now && item.state == 0){
+            item.state = 2; //已过期
+            outNum++;
+        }
+    })
+   
+}
+
 
 /*
  * 添加备忘录
@@ -57,14 +72,16 @@ function addNote(){
             return;
         };
         var timeSpace = 1 * 24*3600*1000; //保存的时间(天)
+        //var timeSpace = 10*1000; //保存的时间(天)
         noteList.push({
             title: value,
             state: 0 ,  //-1:已删除; 0:未完成; 1:已完成; 2: 已过期
             endTime: new Date().getTime()+timeSpace
-        }) 
+        });
+        $input.value = ''; //清空输入框
         
         setHistory()
-        renderList()
+        renderList(noteList)
 
     })
 }
@@ -106,54 +123,6 @@ function search(){
     })
 }
 
-/*
- * 每隔3小时查询一次，是否过期
- */
-function openPolling(){
-    clearInterval(timer);
-    timer = setInterval(function(){
-        checkTimeout();
-    },3*3600*1000)
-}
-/*
- * 检查是否过期
- */
-function checkTimeout(){
-    var now = +new Date();
-    console.log(now);
-    var outNum = 0;
-    noteList.forEach(function(item,i){
-        if(item.endTime>now){
-            item.state = 2; //已过期
-            outNum++;
-        }
-    })
-    if(outNum>0){
-
-        notification('提示','你有'+outNum+'个任务过期了，请及时处理')
-    }
-}
-
-/*
- * 桌面提示
- */
-function notification (title,des){
-    id++;
-    chrome.notifications.create('note-tip-'+id, {
-            type: 'basic',
-            iconUrl: '/images/notebook-48.png',
-            //imageUrl: chrome.runtime.getURL('/images/image.jpg'),
-            title: title,
-            message:des 
-         }, function(notificationId) {});
-    //var notification = webkitNotifications.createNotification(
-     // '/images/notebook-48.png',  // icon url - can be relative
-      //title,  // notification title
-      //des  // notification body text
-    //);
-
-    //notification.show()
-}
 
 /*
  * 渲染列表
@@ -236,11 +205,13 @@ function opacitions(){
         $.confirm('是否删除?', function(){
 
            setListByChecked(-1);
+           let newList = [];
            noteList.forEach(function(item,i){
-                if(item.state == -1){
-                    noteList.splice(i,1);
+                if(item.state != -1){
+                    newList.push(item);
                 }
            })
+           noteList = newList;
            renderList(noteList);
            setHistory();
         })
