@@ -1,6 +1,7 @@
 
 chrome.runtime.onInstalled.addListener(function(){
     openPolling();
+    //notification('title','title');
 })
 /*
  *获取chrome本地存储
@@ -54,19 +55,25 @@ function checkTimeout(){
  */
 function notification (title,des){
     id++;
+    let bgs = ['/images/bg/1.jpg',
+                '/images/bg/2.png',
+                '/images/bg/3.png',
+                '/images/bg/4.jpg',
+                '/images/bg/5.jpg',
+    ];
+
+    let index =parseInt( Math.random()*bgs.length);
+
+    console.log(index);
+
+
     chrome.notifications.create('note-tip-'+id, {
             type: 'image',
             iconUrl: '/images/notebook-48.png',
-            imageUrl: chrome.runtime.getURL('/images/image.jpg'),
+            imageUrl: chrome.runtime.getURL(bgs[index]),
             title: title,
             message:des 
          }, function(notificationId) {});
-    //var notification = webkitNotifications.createNotification(
-     // '/images/notebook-48.png',  // icon url - can be relative
-      //title,  // notification title
-      //des  // notification body text
-    //);
-
-    //notification.show()
+   
 }
 
