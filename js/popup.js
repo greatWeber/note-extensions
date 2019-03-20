@@ -25,6 +25,7 @@ function main(){
     search();
     opacitions();
     //openPolling();
+    window.open('../add.html');
 }
 
 /*

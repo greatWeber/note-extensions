@@ -1,0 +1,47 @@
+
+.add-wrapper {
+    width: 1000px;
+    margin: 0 auto;
+
+}
+
+.add-wrapper .title {
+    line-height: 2;
+    text-align: center;
+
+}
+
+.form-item {
+    margin: 20px 10px;
+    line-height: 50px;
+    color: #666;
+}
+
+.form-item label {
+    width: 20%;
+}
+
+.form-item input {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-indent: 10px;
+}
+
+.form-item .textarea {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    resize: none;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-indent: 10px;
+}
+
+.form-item button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background: #2dbb2d;
+    color: #fff;
+}
