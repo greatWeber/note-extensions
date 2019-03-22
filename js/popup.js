@@ -25,7 +25,7 @@ function main(){
     search();
     opacitions();
     //openPolling();
-    window.open('../add.html');
+    //window.open('../add.html');
 }
 
 /*
@@ -67,23 +67,7 @@ function addNote(){
     var $input = $.query('.search-input')[0];
 
     $addBtn.addEventListener('click', function(){
-        var value = $input.value.trim();
-        if(!value){
-            alert('请输入内容');
-            return;
-        };
-        var timeSpace = 1 * 24*3600*1000; //保存的时间(天)
-        //var timeSpace = 10*1000; //保存的时间(天)
-        noteList.push({
-            title: value,
-            state: 0 ,  //-1:已删除; 0:未完成; 1:已完成; 2: 已过期
-            endTime: new Date().getTime()+timeSpace
-        });
-        $input.value = ''; //清空输入框
-        
-        setHistory()
-        renderList(noteList)
-
+        window.open('../add.html'); 
     })
 }
 
@@ -258,15 +242,3 @@ function setListByChecked(state){
 
 })()
 
-/*
- * 辅助方法
- */
-var $ = {
-    query: function(str){
-        return document.querySelectorAll(str)
-    },
-    confirm: function(title,cb){
-        var result = window.confirm(title);
-        if(result) cb&&cb()
-    }
-}

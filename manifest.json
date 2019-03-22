@@ -14,7 +14,7 @@
         "default_icon": "images/notebook-16.png",
         "default_popup": "popup.html"
     },
-    "web_accessible_resources": ["images/image.png"],
+    "web_accessible_resources": ["images/image.png","js/add.js","js/utils.js"],
     "background": {
         "scripts": ["background.js"]
     }
