@@ -1,5 +1,7 @@
 
 chrome.runtime.onInstalled.addListener(function(){
+    getHistory();
+
     openPolling();
 })
 /*
@@ -13,7 +15,7 @@ function getHistory(){
         console.log(result)
         if(result.noteList){
             noteList = JSON.parse(result.noteList);
-            //checkTimeout();
+            checkTimeout();
             //renderList(noteList);
         }
     })
@@ -26,7 +28,7 @@ function openPolling(){
     console.log('openPolling')
     clearInterval(timer);
     timer = setInterval(function(){
-        checkTimeout();
+        getHistory();
     },3*3600*1000)
 }
 /*
@@ -34,12 +36,14 @@ function openPolling(){
  */
 function checkTimeout(){
     var outNum = 0;
-    getHistory();
+    //getHistory();
     var now = new Date().getTime();
     console.log(now);
+    console.log(noteList);
     noteList.forEach(function(item,i){
-        if(item.endTime<now && item.state == 0){
-            item.state = 2; //已过期
+            console.log(item.endTime-now)
+        if(parseInt(item.endTime)<now  ){
+            //item.state = 2; //已过期
             outNum++;
         }
     })
