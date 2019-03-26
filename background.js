@@ -39,9 +39,7 @@ function checkTimeout(){
     //getHistory();
     var now = new Date().getTime();
     console.log(now);
-    console.log(noteList);
     noteList.forEach(function(item,i){
-            console.log(item.endTime-now)
         if(parseInt(item.endTime)<now  ){
             //item.state = 2; //已过期
             outNum++;
@@ -57,20 +55,22 @@ function checkTimeout(){
  * 桌面提示
  */
 function notification (title,des){
-    id++;
+    id = new Date().getTime();
+    let bgs = ['/images/bg/1.jpg',
+                '/images/bg/2.png',
+                '/images/bg/3.jpg',
+                '/images/bg/4.jpg',
+                '/images/bg/5.png',
+        ];
+
+    let index =parseInt( Math.random()*bgs.length);
+
     chrome.notifications.create('note-tip-'+id, {
             type: 'image',
             iconUrl: '/images/notebook-48.png',
-            imageUrl: chrome.runtime.getURL('/images/image.jpg'),
+            imageUrl: chrome.runtime.getURL(bgs[index]),
             title: title,
             message:des 
          }, function(notificationId) {});
-    //var notification = webkitNotifications.createNotification(
-     // '/images/notebook-48.png',  // icon url - can be relative
-      //title,  // notification title
-      //des  // notification body text
-    //);
-
-    //notification.show()
-}
+    }
 

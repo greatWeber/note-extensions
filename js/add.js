@@ -23,7 +23,7 @@
         $endTime = $.query('#time')[0];
         $content = $.query('#content')[0];
         $submit = $.query('.submit')[0];
-       
+        jQuery('#time').datetimepicker({format: 'yyyy-mm-dd hh:ii'})
 
     }
 
@@ -38,6 +38,7 @@
             if(!pass) return;
             
             noteList.push({
+                id: new Date().getTime(),
                 title: title,
                 state: 0,
                 content: content,
